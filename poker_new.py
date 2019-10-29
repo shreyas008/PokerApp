@@ -182,6 +182,16 @@ def players(window,card1,card2):
     player4_card_2_image_label = Label(window, image = player4_card_2_image, width =30, height = 40) 
     player4_card_2_image_label.place(x = 1160, y = 40)
 
+def other_player_fold(player_who_folded):
+    player_who_folded = player_who_folded+'_name'
+    player_who_folded.congif(fg="yellow")
+    gameinfo.set(player_who_folded+" has folded")
+
+def other_player_call(player_who_called,value):
+    pot_change = pot.get()+value
+    pot.set(pot_change)
+    gameinfo.set(player_who_called+" has called by "+value)
+
 def server_listen(window): #listens for messages from server
     for i in range(len(flags)):
         flags[i]=True
